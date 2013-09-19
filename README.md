@@ -10,26 +10,29 @@ For my project, I required a Large number of "listener" clients that do NOT send
 Then, there is just one client, the "broadcaster", who sends broadcasts to everyone.
 
 
-*h3 Installation:
+Installation:
 =================
 npm install (in cloned directory)
 
-*h3 Usage:
+Usage:
 ==========
 
-*h4 First start the server with:
-{code}node server.js{code}
+### First start the server with:
+<code>node server.js</code>
 
-*h4 To add concurrent "listener" clients:
-{code}node listenerClient.js [numberOfClients] [rampupInterval] [host/IP] [port]{code}
+### To add concurrent "listener" clients:
+<code>node listenClient.js [numberOfClients] [rampupInterval] [host/IP] [port]</code>
+
+Example: <code>node listenClient.js 250 500 192.168.1.100 8000</code> will add one connection every 500 milliseconds until it reaches 250 concurrent connections.
 
 All of the arguments in the square brackets are optional.
-- [numberOfClients] determines how many concurrent users will connect to the WebSocket server. Defaults to 10.
-- [rampupInterval] determines the time between adding clients in milliseconds. Defaults to 1000 milliseconds.
-- [host/IP] hostname or IP address of WebSocket server. Defaults to localhost.
-- [port] port number of the WebSocket server. Defaults to 3000.
+- <code>[numberOfClients]</code> determines how many concurrent users will connect to the WebSocket server. Defaults to 10.
+- <code>[rampupInterval]</code> determines the time between adding clients in milliseconds. Defaults to 1000 milliseconds.
+- <code>[host/IP]</code> hostname or IP address of WebSocket server. Defaults to localhost.
+- <code>[port]</code> port number of the WebSocket server. Defaults to 3000.
 
-*h4 Lastly, to add a "broadcaster" client:
-{code}node broadcastClient.js [host/IP] [port]{code}
+### Lastly, to add a "broadcaster" client:
+<code>node broadcastClient.js [host/IP] [port]</code>
+Example: <code>node broadcastClient.js 192.168.1.100 8000</code>
 
 Again, arguments in the square brackets are optional.
