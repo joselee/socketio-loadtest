@@ -60,11 +60,18 @@ io.sockets.on('connection', function(socket) {
 
   users++;
 
+  socket.on('fixed', function(message) {
+    countReceived++;
+    io.sockets.emit('fixed', message);
+    countSended += users;
+  });
+
   socket.on('broadcast', function(message) {
     countReceived++;
     io.sockets.emit('broadcast', message);
     countSended += users;
   });
+
 
   socket.on('message', function(message){
     countReceived++;

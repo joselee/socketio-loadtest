@@ -12,12 +12,15 @@ socket.on('connect', function(){
 	console.log(this.socket.transports);
 
   if(messageType === "fixed"){
+    console.log("fixed loop");
     fixedLoop();
   }
   else if (messageType === "send"){
+    console.log("send");
     socket.send('message', 'foo');
   }
   else{
+    console.log("broadcast");
     socket.emit('broadcast', 'bar');
   }
 });
@@ -26,7 +29,7 @@ function fixedLoop(){
   setTimeout(function(){
     socket.emit('fixed', 'asdf');
     fixedLoop();
-  }, rate);
+  }, 9);
 }
 
 socket.on('broadcast', function(){
