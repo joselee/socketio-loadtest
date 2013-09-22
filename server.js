@@ -68,7 +68,7 @@ io.sockets.on('connection', function(socket) {
 
   socket.on('message', function(message){
     countReceived++;
-    socket.send('message', message);
+    socket.emit('message', message);
     countSended ++;
   });
 
