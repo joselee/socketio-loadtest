@@ -1,16 +1,15 @@
 var io = require('socket.io-client');
 
-var host = process.argv[2] ? process.argv[2]  : 'localhost';
-var port = process.argv[3] ? process.argv[3]  : '3000';
+var transport = process.argv[3] ? process.argv[3]  : 'websocket';
+var host = process.argv[3] ? process.argv[3]  : 'localhost';
+var port = process.argv[4] ? process.argv[4]  : '3000';
 
-var socket = io.connect('http://' + host + ':' + port, {'force new connection': true});
+var socket = io.connect('http://' + host + ':' + port, {'force new connection': true, transports:[transport]});
 
 socket.on('connect', function(){
-  // Send a message at a specified interval
+	console.log(this.socket.transports);
   sendLoop();
-
-  // Send initial message, and wait for reply to send another
-  //sendOnResponse();
+//  sendOnResponse();
 });
 
 function sendLoop(){

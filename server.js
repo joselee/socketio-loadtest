@@ -2,12 +2,17 @@ var io = require('socket.io').listen(3000);
 var exec = require('child_process').exec; 
 
 io.configure(function() {
-  io.set('log level', 1);
+  var transport = process.argv[2] ? process.argv[2]  : 'websocket';
+  console.log("Transport: " + transport);
 
-  var transport = process.argv.length >= 2 ? process.argv[2] : null;
-  if (transport) {
-    io.set('transports', [transport]);
-  }
+  io.set('transports', [transport]);
+  io.set('log level', 1);
+  io.set('heartbeats', true);
+  io.set('close timeout', 120);
+  io.set('heartbeat timeout', 120);
+  io.set('heartbeat interval', 40);
+  io.set('polling duration', 40);  
+  io.set('log level', 2);
 });
 
 // command to read process consumed memory and cpu time
