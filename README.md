@@ -50,3 +50,10 @@ Again, arguments in the square brackets are optional...HOWEVER, in order to use 
 
 For example, to change the [messageType] argument, all the arguments, [transport] [messageRate] [host/IP] and [port] also need to be specified.
 This rule applies to both listenClient and broatcastClient!
+
+
+#### Final recommendations:
+It can be taxing to run all three (server, listener, and broadcaster) on a single computer.
+
+When I was running benchmarks, I ran server.js on my desktop, then listener and broadcaster were run from my laptop.
+At the last moment, I tried separating listener and broadcaster, so each module was run on a separate machine. The benchmarks were improved SIGNIFICANTLY!
