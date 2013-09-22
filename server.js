@@ -60,22 +60,22 @@ io.sockets.on('connection', function(socket) {
 
   users++;
 
-  socket.on('fixed', function(message) {
+  socket.on('fixed', function() {
     countReceived++;
-    io.sockets.emit('fixed', message);
+    io.sockets.emit('fixed', 'asdf');
     countSended += users;
   });
 
-  socket.on('broadcast', function(message) {
+  socket.on('broadcast', function() {
     countReceived++;
-    io.sockets.emit('broadcast', message);
+    io.sockets.emit('broadcast', 'bar');
     countSended += users;
   });
 
 
-  socket.on('message', function(message){
+  socket.on('message', function(){
     countReceived++;
-    socket.emit('message', message);
+    socket.emit('message', 'foo');
     countSended ++;
   });
 
