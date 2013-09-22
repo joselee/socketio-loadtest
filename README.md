@@ -56,4 +56,6 @@ This rule applies to both listenClient and broatcastClient!
 It can be taxing to run all three (server, listener, and broadcaster) on a single computer.
 
 When I was running benchmarks, I ran server.js on my desktop, then listener and broadcaster were run from my laptop.
-At the last moment, I tried separating listener and broadcaster, so each module was run on a separate machine. The benchmarks were improved SIGNIFICANTLY!
+At the last moment, I separated listener and broadcaster further by running listener on my microserver (raspberry pi), so each module was run on a separate machine.
+
+The benchmarks were improved SIGNIFICANTLY!
