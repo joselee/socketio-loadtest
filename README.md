@@ -53,7 +53,7 @@ This rule applies to both listenClient and broatcastClient!
 
 
 #### Final recommendations:
-It can be taxing to run all three (server, listener, and broadcaster) on a single computer.
+It can be taxing to run all three modules (server, listener, and broadcaster) on a single computer.
 
 When I was running benchmarks, I ran server.js on my desktop, then listener and broadcaster were run from my laptop.
 At the last moment, I separated listener and broadcaster further by running listener on my microserver (raspberry pi), so each module was run on a separate machine.
