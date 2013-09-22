@@ -66,6 +66,12 @@ io.sockets.on('connection', function(socket) {
     countSended += users;
   });
 
+  socket.on('message', function(message){
+    countReceived++;
+    socket.send('message', message);
+    countSended ++;
+  });
+
   socket.on('disconnect', function() {
     users--;
   })
