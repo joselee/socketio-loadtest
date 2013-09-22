@@ -47,4 +47,6 @@ Example: <code>node broadcastClient.js websocket 1000 192.168.1.100 3000</code>
 - <code>[messageType]</code> messageType can be either 'fixed', 'send', or 'broadcast'. Fixed means that messages will be sent at a fixed rate which is the [messageRate] argument. Send means that the message sent to the server will only be sent back to the sender, and not to all listeners. Lastly, Broadcast means that messages sent to the server are broadcasted to all listeners.
 
 Again, arguments in the square brackets are optional...HOWEVER, in order to use arguments at the end of the argument list, the earlier arguments need to be given.
-For example, to change the [messageType] argument, all the rest need be specified: [transport] [messageRate] [host/IP] [port]
+
+For example, to change the [messageType] argument, all the arguments, [transport] [messageRate] [host/IP] and [port] also need to be specified.
+This rule applies to both listenClient and broatcastClient!
