@@ -29,7 +29,7 @@ function fixedLoop(){
   setTimeout(function(){
     socket.emit('fixed', 'asdf');
     fixedLoop();
-  }, 9);
+  }, rate);
 }
 
 socket.on('broadcast', function(){
